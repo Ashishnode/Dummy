@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+
 
 function App(){
-  const [selected,setSelected] = useState(null)
+  const[data,setData]=useState(0)
 
-  const lists =['Bag','shoes','umberalla','bottle']
+const minus=()=>{data>0?setData(data-1):setData(data)}
   return<>
-  {lists.length>1? 
-               (lists.map((list ,index)=><ul key={index} onClick={()=>setSelected(list)}>{list}</ul>))
-               :(<h1>Empty Server Not responding</h1>)
-    
-  }
-  <h3>Selected items {selected}</h3>
+  <button onClick={()=>minus()}>-</button>
+  {data}
+  <button onClick={()=>setData(data+1)}>+</button>
+
   </>
 }
 
-export default App
+export default App 
